@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Maxine 💖</title>
+  <title>Important Question 👀</title>
 
   <style>
     * { box-sizing: border-box; }
@@ -24,21 +24,16 @@
       background: white;
       width: 100%;
       max-width: 420px;
-      padding: 26px;
-      border-radius: 26px;
-      box-shadow: 0 14px 32px rgba(0,0,0,0.25);
+      padding: 28px;
+      border-radius: 28px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.25);
       text-align: center;
-      z-index: 1;
+      position: relative;
     }
 
     h1 {
-      font-size: 1.9rem;
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      margin: 18px 0;
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     p {
@@ -46,20 +41,30 @@
       line-height: 1.5;
     }
 
+    h2 {
+      margin: 20px 0;
+      font-size: 1.35rem;
+    }
+
     .buttons {
+      margin-top: 22px;
       display: flex;
       flex-direction: column;
       gap: 14px;
-      margin-top: 22px;
+      position: relative;
     }
 
     button {
-      width: 100%;
       padding: 16px;
       font-size: 1.1rem;
       border: none;
       border-radius: 999px;
       cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    button:active {
+      transform: scale(0.95);
     }
 
     .yes {
@@ -71,9 +76,10 @@
     .no {
       background: #f2f2f2;
       color: #555;
+      position: relative;
     }
 
-    /* OVERLAY */
+    /* Overlay */
     .overlay {
       position: fixed;
       inset: 0;
@@ -86,43 +92,31 @@
     }
 
     .lightbox {
-      position: relative;
       background: white;
-      border-radius: 28px;
-      padding: 30px;
+      border-radius: 30px;
+      padding: 32px;
       max-width: 420px;
       width: 100%;
       text-align: center;
       animation: pop 0.4s ease;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      position: relative;
       overflow: hidden;
     }
 
     @keyframes pop {
-      from {
-        transform: scale(0.7);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .lightbox h1 {
-      font-size: 2rem;
-    }
-
-    .lightbox p {
-      font-size: 1.1rem;
-      margin: 16px 0;
+      font-size: 2.1rem;
     }
 
     .close {
       margin-top: 18px;
       background: #ff5e78;
       color: white;
-      padding: 14px 20px;
+      padding: 14px 22px;
       border-radius: 999px;
       border: none;
       font-size: 1rem;
@@ -131,7 +125,7 @@
       z-index: 2;
     }
 
-    /* CONFETTI */
+    /* Confetti */
     .confetti {
       position: absolute;
       width: 8px;
@@ -142,26 +136,22 @@
 
     @keyframes fall {
       to {
-        transform: translateY(120%) rotate(720deg);
+        transform: translateY(140%) rotate(720deg);
         opacity: 0;
       }
     }
 
-    /* HEARTS */
+    /* Hearts */
     .heart {
       position: absolute;
       bottom: 20px;
-      font-size: 22px;
+      font-size: 24px;
       animation: floatUp 2.5s ease-out forwards;
     }
 
     @keyframes floatUp {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
       to {
-        transform: translateY(-140px) scale(1.8);
+        transform: translateY(-160px) scale(1.8);
         opacity: 0;
       }
     }
@@ -171,31 +161,56 @@
 
   <div class="card">
     <h1>Hey Maxine 👀</h1>
-    <p>I checked the stars ✨, the vibes 😌, and my heart…</p>
-    <h2>Would you go on a date with Jeremy? 💕</h2>
+
+    <p>
+      I did a very serious analysis 🤓<br>
+      (involving vibes, snacks, and you)
+    </p>
+
+    <h2>
+      Conclusion:<br>
+      We should totally go on a date 💕
+    </h2>
 
     <div class="buttons">
       <button class="yes" onclick="openLightbox()">YES 😍</button>
-      <button class="no" onclick="sayNo()">Hmm… maybe 🤔</button>
+      <button class="no" id="noBtn">No 🙄</button>
     </div>
 
-    <div id="message"></div>
+    <p style="margin-top:14px; font-size:0.9rem; opacity:0.7;">
+      *Results are scientifically biased*
+    </p>
   </div>
 
-  <!-- LIGHTBOX -->
+  <!-- Lightbox -->
   <div class="overlay" id="overlay">
     <div class="lightbox" id="lightbox">
-      <h1>🎉 SHE SAID YES 🎉</h1>
+      <h1>🎉 EXCELLENT CHOICE 🎉</h1>
       <p>
-        Maxine, you just made my heart explode 💖<br><br>
-        This moment is officially legendary ✨
+        Maxine, you just unlocked:<br><br>
+        ✨ Cute dates<br>
+        ✨ Laughs for no reason<br>
+        ✨ Jeremy is very happy right now 😄
       </p>
-      <p>Let’s make this date unforgettable ☕🌆</p>
-      <button class="close" onclick="closeLightbox()">Okay, let’s go 😍</button>
+      <p>
+        Let’s make this a core memory 💖
+      </p>
+      <button class="close" onclick="closeLightbox()">Let’s gooo 😍</button>
     </div>
   </div>
 
   <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseenter", moveButton);
+    noBtn.addEventListener("click", moveButton);
+
+    function moveButton() {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 80 - 40;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
     function openLightbox() {
       const overlay = document.getElementById("overlay");
       const box = document.getElementById("lightbox");
@@ -203,35 +218,27 @@
 
       // Confetti
       for (let i = 0; i < 60; i++) {
-        const confetti = document.createElement("div");
-        confetti.className = "confetti";
-        confetti.style.left = Math.random() * 100 + "%";
-        confetti.style.background =
-          `hsl(${Math.random() * 360}, 100%, 60%)`;
-        confetti.style.animationDuration =
-          Math.random() * 2 + 2 + "s";
-        box.appendChild(confetti);
-        setTimeout(() => confetti.remove(), 3000);
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random() * 100 + "%";
+        c.style.background = `hsl(${Math.random()*360},100%,60%)`;
+        box.appendChild(c);
+        setTimeout(() => c.remove(), 3000);
       }
 
       // Hearts
       for (let i = 0; i < 10; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerHTML = "💖";
-        heart.style.left = Math.random() * 80 + 10 + "%";
-        box.appendChild(heart);
-        setTimeout(() => heart.remove(), 2500);
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "💖";
+        h.style.left = Math.random() * 80 + 10 + "%";
+        box.appendChild(h);
+        setTimeout(() => h.remove(), 2500);
       }
     }
 
     function closeLightbox() {
       document.getElementById("overlay").style.display = "none";
-    }
-
-    function sayNo() {
-      document.getElementById("message").innerHTML =
-        "That option was emotionally unavailable 😌 Try again 😉";
     }
   </script>
 
